@@ -103,7 +103,6 @@ func (m *Mux) FuzzyMatch(msg string) (*Route, []string) {
 // will receive all Discord messages and parse them for matches to registered
 // routes.
 func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate) {
-
 	var err error
 
 	// Ignore all messages created by the Bot account itself
@@ -172,12 +171,6 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 			ctx.IsDirected, ctx.HasPrefix, ctx.HasMentionFirst = true, true, true
 			ctx.Content = strings.TrimPrefix(ctx.Content, m.Prefix)
 		}
-	}
-
-	// For now, if we're not specifically mentioned we do nothing.
-	// later I might add an option for global non-mentioned command words
-	if !ctx.IsDirected {
-		return
 	}
 
 	// Try to find the "best match" command out of the message.

@@ -7,32 +7,39 @@ import (
 	"os/signal"
 	"syscall"
 	"technoabsurdist/digest/util"
+	"technoabsurdist/digest/x/mux"
 	"github.com/bwmarrin/discordgo"
 )
 
 // global err and token
 var err error
 var token string
-// create the discordgo session
 var Session *discordgo.Session
-
+var Router *mux.Mux
 
 func init() {
 	// Load token from env file
 	config, err := config.LoadConfig(".")
-
 	if err != nil {
 		log.Fatal("Cannot load config:", err)
 	}
+
 	// set our bot's token
 	token = config.TOKEN
 	botToken := fmt.Sprintf("Bot %s", token)
 
+	Session, _ = discordgo.New(botToken)
 	if Session.Token == "" {
 		log.Println("You must provide a Discord authenticaton token")
 		return
 	}
-	Session, _ = discordgo.New(botToken)
+
+	Router = mux.New()
+	Session.AddHandler(Router.OnMessageCreate)
+	
+	// Routes 
+	Router.Route("Help", "Display this message.", Router.Help)
+	Router.Route("!digest", "This is your digest", Router.Digest)
 }
 
 func main() {
