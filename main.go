@@ -38,8 +38,8 @@ func init() {
 	Session.AddHandler(Router.OnMessageCreate)
 	
 	// Routes 
-	Router.Route("Help", "Display this message.", Router.Help)
-	Router.Route("!digest", "This is your digest", Router.Digest)
+	Router.Route("!help", "Help menu", Router.Help)
+	Router.Route("!digest", "Digest", Router.Digest)
 }
 
 func main() {
