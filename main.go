@@ -6,57 +6,36 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-
+	"technoabsurdist/digest/util"
 	"github.com/bwmarrin/discordgo"
-	"github.com/spf13/viper"
 )
-
-// config settings
-type Config struct {
-	TOKEN string `mapstructure:"TOKEN"`
-}
-
-func LoadConfig(path string) (config Config, err error) {
-	viper.AddConfigPath(path)
-	viper.SetConfigName("app")
-	viper.SetConfigType("env")
-
-	viper.AutomaticEnv()
-	err = viper.ReadInConfig()
-	if err != nil {
-		return
-	}
-	err = viper.Unmarshal(&config)
-	return
-}
 
 // global err and token
 var err error
 var token string
+// create the discordgo session
+var Session *discordgo.Session
+
 
 func init() {
 	// Load token from env file
-	config, err := LoadConfig(".")
+	config, err := config.LoadConfig(".")
 
 	if err != nil {
 		log.Fatal("Cannot load config:", err)
 	}
 	// set our bot's token
 	token = config.TOKEN
-
-}
-func main() {
-
 	botToken := fmt.Sprintf("Bot %s", token)
-
-	// create the discordgo session
-	var Session, _ = discordgo.New(botToken)
 
 	if Session.Token == "" {
 		log.Println("You must provide a Discord authenticaton token")
 		return
 	}
+	Session, _ = discordgo.New(botToken)
+}
 
+func main() {
 	// Open a websocket connection to Discord
 	err = Session.Open()
 	if err != nil {
