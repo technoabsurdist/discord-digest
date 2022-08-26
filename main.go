@@ -30,9 +30,11 @@ func LoadConfig(path string) (config Config, err error) {
 	return
 }
 
-func main() {
-	var err error
+// global err and token
+var err error
+var token string
 
+func init() {
 	// Load token from env file
 	config, err := LoadConfig(".")
 
@@ -40,7 +42,11 @@ func main() {
 		log.Fatal("Cannot load config:", err)
 	}
 	// set our bot's token
-	token := config.TOKEN
+	token = config.TOKEN
+
+}
+func main() {
+
 	botToken := fmt.Sprintf("Bot %s", token)
 
 	// create the discordgo session

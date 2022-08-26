@@ -6,6 +6,7 @@ require github.com/spf13/viper v1.12.0
 
 require (
 	github.com/bwmarrin/discordgo v0.26.0 // indirect
+	github.com/bwmarrin/disgord v0.0.0-20200407171809-1fe97f20c0de // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
