@@ -1,6 +1,7 @@
 ## Discord Digest Bot
 
 <hr />
+
 ### Functionality
 If bot in channel, on command `!digest`, bot will send a markdown formatted file channel into the channel where message was sent with top 10 hackernews stories and some important stock and crypto price indicators for the past month. 
 

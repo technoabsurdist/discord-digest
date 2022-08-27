@@ -3,68 +3,65 @@ August, 27, 2022
 ![robot news](https://media.giphy.com/media/LP0ZqMGRx0azpBhBgN/giphy.gif)
 
 
-
+--------------------------------------
 --------------------------------------
 
 
 ## → 📰 Top HackerNews Today</u>
 
-**American Chestnut tree discovery in Delaware wows conservationists**
+**American chestnut tree in Centreville is the 'holy grail' for conservationists**
 	<u>https://www.delawareonline.com/story/news/2022/08/26/american-chestnut-tree-discovery-in-delaware-wows-conservationists/65414649007/</u>
-
-**A new Linux handheld game console based on ODROID-N2**
-	<u>https://forum.odroid.com/viewtopic.php?t=45143</u>
-
-**Fruit eating possibly linked to primates' large brain evolution (2017)**
-	<u>https://www.science.org/content/article/fruit-eating-responsible-big-brains</u>
-
-**A Programming Language Database**
-	<u>https://github.com/breck7/pldb</u>
-
-**How the National Environmental Policy Act (NEPA) Works**
-	<u>https://constructionphysics.substack.com/p/how-nepa-works</u>
-
-**Interlisp Online**
-	<u>https://online.interlisp.org/user/login</u>
 
 **The UNIX Programming Environment**
 	<u>https://archive.org/details/UnixProgrammingEnviornment</u>
 
-**Crawler Hints supports Microsoft’s IndexNow in helping users find new content**
-	<u>https://blog.cloudflare.com/crawler-hints-supports-microsofts-indexnow-in-helping-users-find-new-content/</u>
+**Chrome's Manifest v3 is lacking features**
+	<u>https://bugs.chromium.org/p/chromium/issues/detail?id=1160302</u>
+
+**A new Linux handheld game console based on ODROID-N2**
+	<u>https://forum.odroid.com/viewtopic.php?t=45143</u>
+
+**Ask HN: How can I start a business to generate electricity?**
+	<u></u>
+
+**A Programming Language Database**
+
+**Interlisp Online**
+	<u>https://onlin
+**Interlisp Online**
+	<u>https://online.interlisp.org/user/login</u>
+
+**Volkswriter Deluxe – One of the first word processors for the IBM PC**
+	<u>https://computeradsfromthepast.substack.com/p/volkswriter-deluxe</u>
+
+**Show HN: A piano chord reference tool**
+	<u>https://pianochord.io/</u>
+
+**How the National Environmental Policy Act (NEPA) Works**
+	<u>https://constructionphysics.substack.com/p/how-nepa-works</u>
+
+**Biggest story in books: Penguin Random House trial ripping lid off publishing**
+	<u>https://shush.substack.com/p/the-biggest-story-in-books</u>
 
 **Robert's Rules of Order (1876)**
 	<u>https://www.gutenberg.org/files/9097/9097.txt</u>
 
+**Intel enters a new era of chiplets**
+	<u>https://www.servethehome.com/intel-enters-a-new-era-of-chiplets-that-will-change-everything-34/</u>
+
 **Copilot: Realtime programming language and runtime verification framework**
 	<u>https://copilot-language.github.io/</u>
-
-**The Making of a Prophet**
-	<u>https://lareviewofbooks.org/article/the-making-of-a-prophet/</u>
-
-**Show HN: Browse HN Together in Three.js**
-	<u>https://threejs-example.hyperbeam.com</u>
-
-**The art of sharpening pencils (2007)**
-	<u>https://matthewjamestaylor.com/sharpening-pencils</u>
-
-**JWST: Identification of carbon dioxide in an exoplanet atmosphere**
-	<u>https://arxiv.org/abs/2208.11692</u>
-
 
 --------------------------------------
 
 
 ## → 📈 Top Stock Indicators Today 
 
+--------------------------------------
 
-### ^GSPC
 
-	**July 27:** 4039.560059
-	**July 28:** 4078.949951
-	**July 29:** 4140.149902
-	**August 1:** 4144.950195
-	**August 2:** 4140.470215
+## → ₿ Top Crypto Indicators Today
+**August 2:** 4140.470215
 	**August 3:** 4167.660156
 	**August 4:** 4161.290039
 	**August 5:** 4151.580078

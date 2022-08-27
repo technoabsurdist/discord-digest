@@ -13,8 +13,6 @@ import (
 
 /* Out of an array of message structs, create a formatted message and apply logic */ 
 func digestCreator(ds *discordgo.Session, dm *discordgo.Message) {
-	// m.sortByTime()
-	// m.sortByContentLength()
 	f, err := os.Create("data.md")
 
 	if err != nil {
@@ -28,9 +26,7 @@ func digestCreator(ds *discordgo.Session, dm *discordgo.Message) {
 	f.WriteString(fmt.Sprintf("%s, %d, %d\n", month, day, year))
 	f.WriteString(fmt.Sprint("![robot news](https://media.giphy.com/media/LP0ZqMGRx0azpBhBgN/giphy.gif)\n"))
 	
-	// append hacker news section
 	getHackerNews(f)
-	// Important stock (faangs, indicators, etc...)  and crypto (btc, eth, sol) prices (including sps, etc.)
 	writeHr(f)
 	_, err = f.WriteString("\n\n## → 📈 Top Stock Indicators Today \n")
 	getStockIndicators(f)
@@ -39,8 +35,6 @@ func digestCreator(ds *discordgo.Session, dm *discordgo.Message) {
 	_, err = f.WriteString("\n\n## → ₿ Top Crypto Indicators Today\n")
 	getCryptoIndicators(f)
 	
-	// end file editing
-
 	// send file as message
 	var data *discordgo.MessageSend
 	dataFile, err := os.Open("data.md")
@@ -48,15 +42,18 @@ func digestCreator(ds *discordgo.Session, dm *discordgo.Message) {
 		log.Fatal(err)
 	}
 
+
 	discordF := &discordgo.File{
 		Name:   "data.md",
 		ContentType: "text/markdown",
 		Reader: dataFile,
 	}
-
-	data.Files = []*discordgo.File{discordF}
+	data = &discordgo.MessageSend{
+		Content: "",
+		Files: []*discordgo.File{discordF},
+	}
 	ds.ChannelMessageSendComplex(dm.ChannelID, data)
-
+	log.Println("Sent digest")
 	f.Close()
 }
 
