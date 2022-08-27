@@ -12,7 +12,7 @@ import (
 
 
 /* Out of an array of message structs, create a formatted message and apply logic */ 
-func digestCreator(dm *discordgo.Message) {
+func digestCreator(ds *discordgo.Session, dm *discordgo.Message) {
 	// m.sortByTime()
 	// m.sortByContentLength()
 	f, err := os.Create("data.md")
@@ -31,20 +31,39 @@ func digestCreator(dm *discordgo.Message) {
 	// append hacker news section
 	getHackerNews(f)
 	// Important stock (faangs, indicators, etc...)  and crypto (btc, eth, sol) prices (including sps, etc.)
-
-	f.WriteString("\n\n--------------------------------------\n")
+	writeHr(f)
 	_, err = f.WriteString("\n\n## → 📈 Top Stock Indicators Today \n")
 	getStockIndicators(f)
 
-	f.WriteString("\n\n--------------------------------------\n")
+	writeHr(f)
 	_, err = f.WriteString("\n\n## → ₿ Top Crypto Indicators Today\n")
 	getCryptoIndicators(f)
+	
+	// end file editing
+
+	// send file as message
+	var data *discordgo.MessageSend
+	dataFile, err := os.Open("data.md")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	discordF := &discordgo.File{
+		Name:   "data.md",
+		ContentType: "text/markdown",
+		Reader: dataFile,
+	}
+
+	data.Files = []*discordgo.File{discordF}
+	ds.ChannelMessageSendComplex(dm.ChannelID, data)
+
+	f.Close()
 }
 
 /* Defines what happens when Digest function is called, which is called when the
 bot sees '!digest' in specified channel */ 
 func (m *Mux) Digest(ds *discordgo.Session, dm *discordgo.Message, ctx *Context) {
-	digestCreator(dm)	
+	digestCreator(ds, dm)	
 }
 
 
@@ -53,7 +72,7 @@ func getHackerNews(f *os.File) {
 	res, _ := client.GetTop100()
 	resTop10 := res[:15]
 
-	f.WriteString("\n\n\n--------------------------------------\n")
+	writeHr(f)
 	f.WriteString("\n\n## → 📰 Top HackerNews Today</u>\n")
 	for _, topStory := range resTop10 {
 		story, err := client.GetStory(topStory)
@@ -106,4 +125,8 @@ func getCryptoIndicators(f *os.File) {
 					quote.OpensAt.Month(), quote.OpensAt.Day(), quote.High))
 		}
 	}
+}
+
+func writeHr(f *os.File) {
+	f.WriteString("\n\n--------------------------------------\n")
 }
