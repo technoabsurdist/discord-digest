@@ -58,10 +58,4 @@ func main() {
 
 	// Clean up
 	Session.Close()
-
-	// connect to Discord
-
-	// Log out messages
-
-	// exit
 }
